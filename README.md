@@ -1,5 +1,7 @@
 # FTsunami
 
+[![CMake](https://github.com/Marlon-Gomes/ftsunami/actions/workflows/cmake.yml/badge.svg)](https://github.com/Marlon-Gomes/ftsunami/actions/workflows/cmake.yml)
+
 A tsunami simulator written in Fortran. Waves are assumed to be subject to the shallow-water, or Saint-Venant, equations (SWE):
 <!-- LaTeX in github markdown. "%2B" is the symbol for addition -->
 <p align="center">
