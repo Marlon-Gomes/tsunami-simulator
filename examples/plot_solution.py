@@ -1,13 +1,17 @@
+#!/usr/bin/env python3
 import h5py as h5
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation, ImageMagickWriter
 import numpy as np
-# Read data from HFD5 file
-with h5.File('../build/data/tsunami.h5', 'r') as hf:
-    data = np.array(hf.get('height'))
 
-def my_func():
+# Read data from HFD5 file
+def read_data():
+    with h5.File('../build/data/tsunami.h5', 'r') as hf:
+        data = np.array(hf.get('height'))
+    return data
+
+def my_func(input_data):
     # Set up matplotlib parameters
     mpl.rcParams['font.family'] = 'Avenir'
     mpl.rcParams['font.size'] = 18
@@ -20,7 +24,7 @@ def my_func():
     ax.grid()
     # Create variable reference to plot
     x = np.arange(1,101)
-    swe_line, = ax.plot(x, data[0,:], linewidth=2.5)
+    swe_line, = ax.plot(x, input_data[0,:], linewidth=2.5)
     # Time-stamp values
     time = np.arange(101)
     # Add text annotation and create variable reference
@@ -35,7 +39,7 @@ def my_func():
     ax.set_ylim(0,1)
     # Animation function
     def animate(i):
-        y = data[i,:]
+        y = input_data[i,:]
         swe_line.set_data(x, y)
         temp.set_text(str(int(time[i])) + ' s')
 
@@ -52,4 +56,5 @@ def my_func():
     plt.show()
 
 if __name__=='__main__':
-    my_func()
+    data = read_data()
+    my_func(data)
