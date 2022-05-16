@@ -1,0 +1,11 @@
+name: env
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - matplotlib
+  - numpy
+  - python
+  - h5py
+  - imagemagick
+prefix: ./env
