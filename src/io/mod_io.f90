@@ -1,6 +1,8 @@
-module io
+module mod_io
     use hdf5
     implicit none
+    private
+    public :: write_hdf5
 
 contains
     subroutine write_hdf5(data)
@@ -35,4 +37,4 @@ contains
         call h5close_f(error)
     end subroutine
 
-end module
+end module mod_io
