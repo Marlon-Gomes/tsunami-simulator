@@ -19,17 +19,24 @@ def my_func(input_data):
     mpl.rcParams['axes.linewidth'] = 2
     mpl.rcParams['axes.spines.top'] = False
     mpl.rcParams['axes.spines.right'] = False
+    # Set y-limits according to water depth and max wave height
+    ymin = -10.0
+    ymax = 1.2*input_data.max()
+    # Set time delta
+    dt = 0.01
     # Create figure and axis
     fig = plt.figure(figsize=(9, 6))
-    renderer = fig.canvas.get_renderer()
-    ax = fig.add_subplot(autoscale_on=False, xlim=(0, 100.), ylim=(-0.2, 1.2))
+    ax = fig.add_subplot(
+        autoscale_on=False, 
+        xlim=(0, 100.), 
+        ylim=(ymin, ymax))
     ax.grid()
     # Create variable reference to plot
-    x = np.arange(1,101)
+    x = np.arange(1, input_data.shape[1] + 1)
     swe_line, = ax.plot(x, input_data[0,:], linewidth=2.5)
-    ax.fill_between(x, input_data[0,:], -0.2, facecolor='#005476', alpha = 0.9)
+    ax.fill_between(x, input_data[0,:], ymin, facecolor='#005476', alpha = 0.9)
     # Time-stamp values
-    time = np.arange(101)
+    time = np.arange(input_data.shape[0])*dt
     # Add text annotation and create variable reference
     temp = ax.text(1, 1, '', ha='right', va='top', fontsize=24,
         transform = ax.transAxes)
@@ -42,11 +49,11 @@ def my_func(input_data):
         y = input_data[i,:]
         swe_line.set_data(x, y)
         ax.collections.clear()
-        ax.fill_between(x, y, -0.2, facecolor='#005476', alpha = 0.9)
-        temp.set_text(str(int(time[i])) + ' s')
+        ax.fill_between(x, y, ymin, facecolor='#005476', alpha = 0.9)
+        temp.set_text("{:.2f}".format(time[i]) + ' s')
 
     # Create animation
-    ani = FuncAnimation(fig, animate, frames = len(time), interval = 200,
+    ani = FuncAnimation(fig, animate, frames = np.arange(len(time))[::20], interval = 200,
         repeat=False)
 
     # Ensure the entire plot is visible
