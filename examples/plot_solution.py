@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation, ImageMagickWriter
 import numpy as np
 
+
 # Read data from HFD5 file
 def read_data():
     with h5.File('../build/data/tsunami.h5', 'r') as hf:
@@ -20,11 +21,13 @@ def my_func(input_data):
     mpl.rcParams['axes.spines.right'] = False
     # Create figure and axis
     fig = plt.figure(figsize=(9, 6))
-    ax = fig.add_subplot(autoscale_on=False, xlim=(0, 100.), ylim=(0, 1.))
+    renderer = fig.canvas.get_renderer()
+    ax = fig.add_subplot(autoscale_on=False, xlim=(0, 100.), ylim=(-0.2, 1.2))
     ax.grid()
     # Create variable reference to plot
     x = np.arange(1,101)
     swe_line, = ax.plot(x, input_data[0,:], linewidth=2.5)
+    ax.fill_between(x, input_data[0,:], -0.2, facecolor='#005476', alpha = 0.9)
     # Time-stamp values
     time = np.arange(101)
     # Add text annotation and create variable reference
@@ -34,13 +37,12 @@ def my_func(input_data):
     # Set axes labels
     ax.set_xlabel('Position (m)')
     ax.set_ylabel('Height (m)')
-    # Set axes limits
-    ax.set_xlim(0,100)
-    ax.set_ylim(0,1)
     # Animation function
     def animate(i):
         y = input_data[i,:]
         swe_line.set_data(x, y)
+        ax.collections.clear()
+        ax.fill_between(x, y, -0.2, facecolor='#005476', alpha = 0.9)
         temp.set_text(str(int(time[i])) + ' s')
 
     # Create animation
