@@ -1,7 +1,7 @@
-# FTsunami
+# Tsunami Simulator
 
 <!-- PROJECT SHIELDS -->
-[![CMake](https://github.com/Marlon-Gomes/ftsunami/actions/workflows/cmake.yml/badge.svg)](https://github.com/Marlon-Gomes/ftsunami/actions/workflows/cmake.yml)
+[![CMake](https://github.com/Marlon-Gomes/tsunami-simulator/actions/workflows/cmake.yml/badge.svg)](https://github.com/Marlon-Gomes/tsunami-simulator/actions/workflows/cmake.yml)
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project

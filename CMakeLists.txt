@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.3)
-project(ftsunami
+project(tsunami
     LANGUAGES Fortran)
 
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
