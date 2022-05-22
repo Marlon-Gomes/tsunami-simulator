@@ -15,24 +15,22 @@ equations, or SWE, for short):
 <!-- LaTeX in github markdown. "%2B" is the symbol for addition -->
 1. Conservation of mass
 <p align="center">
-<img src="https://render.githubusercontent.com/render/math?math={
-    \frac{\partial \mathbf{u}}{\partial t} %2B \mathbf{u} \cdot \nabla \mathbf{u} = -g\nabla h
-    }#gh-light-mode-only" alt="Conservation of mass equation (light screen mode)">
-<img src="https://render.githubusercontent.com/render/math?math={
-    \color{white}
-    \frac{\partial \mathbf{u}}{\partial t} %2B \mathbf{u} \cdot \nabla \mathbf{u} = -g\nabla h
-    }#gh-dark-mode-only" alt="Conservation of mass equation (dark screen mode)">
+<img 
+     src="https://render.githubusercontent.com/render/math?math={\frac{\partial \mathbf{u}}{\partial t} %2B \mathbf{u} \cdot \nabla \mathbf{u} = -g\nabla h}#gh-light-mode-only" 
+     alt="Conservation of mass equation (light screen mode)">
+<img 
+     src="https://render.githubusercontent.com/render/math?math={\color{white}\frac{\partial \mathbf{u}}{\partial t} %2B \mathbf{u} \cdot \nabla \mathbf{u} = -g\nabla h}#gh-dark-mode-only" 
+     alt="Conservation of mass equation (dark screen mode)">
 </p>
 
 2. Conservation of linear momentum
 <p align="center">
-<img src="https://render.githubusercontent.com/render/math?math={
-    \frac{\partial h}{\partial t} = -\mathrm{div}((H %2B h)\mathbf{u})
-    }#gh-light-mode-only" alt="Conservation of linear momentum equation (light screen mode)">
-<img src="https://render.githubusercontent.com/render/math?math={
-    \color{white}
-    \frac{\partial h}{\partial t} = -\mathrm{div}((H %2B h)\mathbf{u})
-    }#gh-dark-mode-only" alt="Conservation of linear momentum equation (dark screen mode)">
+<img 
+     src="https://render.githubusercontent.com/render/math?math={\frac{\partial h}{\partial t} = -\mathrm{div}((H %2B h)\mathbf{u})}#gh-light-mode-only"
+     alt="Conservation of linear momentum equation (light screen mode)">
+<img 
+     src="https://render.githubusercontent.com/render/math?math={\color{white}\frac{\partial h}{\partial t} = -\mathrm{div}((H %2B h)\mathbf{u})}#gh-dark-mode-only" 
+     alt="Conservation of linear momentum equation (dark screen mode)">
 </p>
 
 where,
