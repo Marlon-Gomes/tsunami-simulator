@@ -58,7 +58,40 @@ will create a build folder and compile an executable called ```tsunami``` to ```
 
 ![Project animation][animation]
 
-The above animation was produced with the python script ```plot_solutions.py```, located at the ```examples``` folder. Dependencies for the python script can be found at ```environment.yml```.
+The above animation was produced with the python script ```plot_solution.py```, located at the ```examples``` folder. It depends on ```numpy```, ```matplotlib```, and ```h5py```. Set these up with any of the tools below (```uv``` is recommended) and then run the script from the ```examples``` folder:
+
+```sh
+cd examples
+```
+
+**uv (recommended)**
+```sh
+uv sync
+uv run python plot_solution.py
+```
+
+**pip**
+```sh
+python3 -m venv .venv
+source .venv/bin/activate      # .venv\Scripts\activate on Windows
+pip install -r ../requirements.txt
+python plot_solution.py
+```
+
+**Poetry**
+```sh
+poetry install
+poetry run python plot_solution.py
+```
+
+**conda**
+```sh
+conda env create -f ../environment.yml
+conda activate env
+python plot_solution.py
+```
+
+All four read from the same dependency list; `uv.lock` and `poetry.lock` are committed for reproducible installs with those tools.
 
 ## Known issues
 
@@ -68,6 +101,9 @@ The non-linear character of the SWE equations only accentuates this issue.
 With the current set of parameters (time-delta, grid size, fluid depth, and 
 initial conditions), the simulation is known to run for about 31s before 
 producing NaNs.
+
+`examples/plot_solution.py` currently crashes on modern matplotlib versions
+(`ax.collections.clear()` was removed) — see `triage.md` for details.
 
 ## Acknowledgements
 

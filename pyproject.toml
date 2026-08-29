@@ -1,0 +1,20 @@
+[project]
+name = "tsunami-simulator"
+version = "0.1.0"
+description = "Plotting and analysis tools for the tsunami-simulator Fortran project"
+requires-python = ">=3.12"
+dependencies = [
+    "numpy",
+    "matplotlib",
+    "h5py",
+]
+
+[tool.uv]
+package = false
+
+[tool.poetry]
+package-mode = false
+
+[build-system]
+requires = ["poetry-core>=1.8"]
+build-backend = "poetry.core.masonry.api"
