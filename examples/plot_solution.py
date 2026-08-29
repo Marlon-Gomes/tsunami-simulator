@@ -34,7 +34,7 @@ def my_func(input_data):
     # Create variable reference to plot
     x = np.arange(1, input_data.shape[1] + 1)
     swe_line, = ax.plot(x, input_data[0,:], linewidth=2.5)
-    ax.fill_between(x, input_data[0,:], ymin, facecolor='#005476', alpha = 0.9)
+    fill = ax.fill_between(x, input_data[0,:], ymin, facecolor='#005476', alpha = 0.9)
     # Time-stamp values
     time = np.arange(input_data.shape[0])*dt
     # Add text annotation and create variable reference
@@ -46,10 +46,11 @@ def my_func(input_data):
     ax.set_ylabel('Height (m)')
     # Animation function
     def animate(i):
+        nonlocal fill
         y = input_data[i,:]
         swe_line.set_data(x, y)
-        ax.collections.clear()
-        ax.fill_between(x, y, ymin, facecolor='#005476', alpha = 0.9)
+        fill.remove()
+        fill = ax.fill_between(x, y, ymin, facecolor='#005476', alpha = 0.9)
         temp.set_text("{:.2f}".format(time[i]) + ' s')
 
     # Create animation

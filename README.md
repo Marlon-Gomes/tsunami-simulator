@@ -102,9 +102,6 @@ With the current set of parameters (time-delta, grid size, fluid depth, and
 initial conditions), the simulation is known to run for about 31s before 
 producing NaNs.
 
-`examples/plot_solution.py` currently crashes on modern matplotlib versions
-(`ax.collections.clear()` was removed) — see `triage.md` for details.
-
 ## Acknowledgements
 
 This project is inspired by Milan Curcic's book *Modern Fortran: Building Efficient Parallel Applications*.
