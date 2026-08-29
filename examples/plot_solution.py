@@ -2,7 +2,7 @@
 import h5py as h5
 import matplotlib as mpl
 import matplotlib.pyplot as plt
-from matplotlib.animation import FuncAnimation, ImageMagickWriter
+from matplotlib.animation import FuncAnimation, PillowWriter
 import numpy as np
 
 
@@ -60,8 +60,7 @@ def my_func(input_data):
     fig.tight_layout()
 
     # Save and show animation
-    ani.save('./AnimatedPlot.gif',
-        writer=ImageMagickWriter( extra_args=['-loop', '1']))
+    ani.save('./AnimatedPlot.gif', writer=PillowWriter(fps=5))
     plt.show()
 
 if __name__=='__main__':

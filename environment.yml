@@ -7,5 +7,4 @@ dependencies:
   - numpy
   - python
   - h5py
-  - imagemagick
 prefix: ./env
