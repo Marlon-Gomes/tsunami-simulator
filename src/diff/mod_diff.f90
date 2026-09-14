@@ -15,7 +15,7 @@ contains
         dx(1) = x(2) - x(i)
         dx(i) = x(1) - x(i-1)
         dx(2:i-1) = x(3:i) - x(1:i-2)
-        dx = 0.5 * dx
+        dx = 0.5_real64 * dx
 end function diff_centered
 
     pure function diff_upwind(x) result(dx)
