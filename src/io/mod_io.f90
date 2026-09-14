@@ -10,13 +10,16 @@ contains
         !
         ! Declare all variables in private context
         !
-        real(real64), dimension(2), intent(in) :: data
+        real(real64), dimension(:,:), intent(in) :: data
         character(len=18), parameter :: file_name = "./data/tsunami.h5"
         character(len=6), parameter :: dset_name = "height"
         integer(HID_T) :: file_id, dspace_id, dset_id
-        integer(int32) :: dset_rank = 2
-        integer(HSIZE_T), dimension(2) :: dset_dims = (/100,3001/)
+        integer(int32), parameter :: dset_rank = 2
+        integer(HSIZE_T), dimension(2) :: dset_dims
         integer(int32) :: error ! Error flag
+
+        dset_dims = shape(data)
+
         ! Initialize the HDF5 Fortran interface
         call h5open_f(error)
         ! Create a new file using default properties
