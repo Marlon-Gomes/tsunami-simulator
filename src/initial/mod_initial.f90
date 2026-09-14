@@ -3,7 +3,7 @@ module mod_initial
     implicit none
     private
     public :: set_gaussian
-    
+
 contains
     pure subroutine set_gaussian(x,  icenter, decay)
         ! Sets x as the graph of a Gaussian with given center and decay

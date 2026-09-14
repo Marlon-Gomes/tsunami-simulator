@@ -22,10 +22,10 @@ program tsunami
     real(real64) :: h(grid_size, 0:num_time_steps)
     ! Array u(x,t) to hold water flow velocity [m/s] at every time step
     real(real64) :: u(grid_size, 0:num_time_steps) = 0.0_real64
-    ! Array dh(x) to hold finite differences in water height [m], for a fixed 
+    ! Array dh(x) to hold finite differences in water height [m], for a fixed
     ! time, at each grid position
     real(real64) :: dh(grid_size)
-    ! Array du(x) to hold finite differences in water flow velocity, for a 
+    ! Array du(x) to hold finite differences in water flow velocity, for a
     ! fixed time, at each grid position
     real(real64) :: du(grid_size)
     ! Initial conditions
